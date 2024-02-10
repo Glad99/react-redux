@@ -1,6 +1,7 @@
 import { useState } from "react"
 import TodoList from "./TodoList"
 import { useDispatch } from "react-redux";
+import { addTodo } from "../store/todoSlice";
 
 const Todo = () => {
   const [input, setInput] = useState("");
