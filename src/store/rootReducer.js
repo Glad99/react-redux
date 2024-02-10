@@ -1,12 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit"
 
-const initialState = {counter: 0, name: "Ope"};
 
 export const counterSlice= createSlice(
 
     {
-        name:"counter",
-        initialState,
+        name:"count",
+        initialState: { counter: 0 , name: 'glad' },
         reducers:{
             increment:(state)=>{
                 state.counter+=1
@@ -14,7 +13,7 @@ export const counterSlice= createSlice(
             },
             decrement: (state)=>{
                 state.counter === 0 ? state.counter = 0 : state.counter-=1
-                state.name="GMC 3"
+                state.name="tayo"
             }
     }
 }

@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./rootReducer";
+import todoReducer from "./todoSlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
@@ -18,13 +19,13 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, counterReducer);
+const persistedReducer = persistReducer(persistConfig, counterReducer );
+const persistedTodoReducer = persistReducer(persistConfig, todoReducer );
 
  export default configureStore({
-  reducer: {
-    counter: 
-      persistedReducer,
-    
+  reducer:{
+    counter: persistedReducer,
+    todo: persistedTodoReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -33,3 +34,5 @@ const persistedReducer = persistReducer(persistConfig, counterReducer);
       },
     }),
 });
+
+
